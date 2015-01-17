@@ -28,6 +28,18 @@ $(document).ready(function() {
 		};
 	});
 
+	//addingTweetsToStream
+	$('#tweet-submit').on('click', function() {
+		var myProfilePic = $('#profile-summary avatar').attr('src');
+		var myUserName = $('#profile-summary').text();
+		var myTweet = $('.tweet-compose').text();
+
+
+	});
+
+	$('.tweet-actions').on('hover', function() {
+
+	});
 
 
 
