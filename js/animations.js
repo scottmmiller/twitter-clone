@@ -13,14 +13,14 @@ $(document).ready(function() {
 	$('.tweet-compose').on('keyup', function() {
 		var content = $('.tweet-compose').val();
 
-		$('#char-count').text(30-$(this).val().length);
-		if (30-$(this).val().length <=10) {
+		$('#char-count').text(140-$(this).val().length);
+		if (140-$(this).val().length <=10) {
 			$('#char-count').css('color', 'red');
 		}
 		else {
 			$('#char-count').css('color', 'black')
 		};
-		if (content.length > 30) {
+		if (content.length > 140) {
 			$('#tweet-submit').attr('disabled', true);
 		}
 		else {
