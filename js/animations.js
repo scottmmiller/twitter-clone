@@ -18,7 +18,7 @@ $(document).ready(function() {
 			$('#char-count').css('color', 'red');
 		}
 		else {
-			$('#char-count').css('color', 'black')
+			$('#char-count').removeAttr('style')
 		};
 		if (content.length > 140) {
 			$('#tweet-submit').attr('disabled', true);
@@ -28,19 +28,48 @@ $(document).ready(function() {
 		};
 	});
 
-	//addingTweetsToStream
+	// //addingTweetsToStream
+	// $('#tweet-submit').on('click', function() {
+	// 	var myProfilePic = $('#profile-summary avatar').attr('src');
+	// 	var myUserName = $('#profile-summary').text();
+	// 	var myTweet = $('.tweet-compose').text();
+
+
+	// });
+
+	// $('.tweet-actions').on('hover', function() {
+
+	// });
+
 	$('#tweet-submit').on('click', function() {
-		var myProfilePic = $('#profile-summary avatar').attr('src');
-		var myUserName = $('#profile-summary').text();
-		var myTweet = $('.tweet-compose').text();
+		var editNewTweet = function(element) {
+			var fullName = $('#profile-summary').find('.fullname').text();
+			var userName = $('#profile-summary').find('.username').text();
+			var avatar = $('#profile-summary').find('.img').attr('src');
+			var tweetText = $('#tweet-content > .tweet-compose').val();
+			$(element).find('.fullname').text(fullName);
+			$(element).find('.username').text(userName);
+			$(element).find('.tweet-text').text(tweetText);
+			$(element).find('.avatar').attr('src', avatar);
 
+		};
+		var newTweet = $('.tweet').first().clone(true);
+		$('stream').prepend(newTweet);
+		editNewTweet(newTweet);
+
+		$('#tweet-content > .tweet-compose').val("");
+		$("#tweet-content > tweet-compose").trigger('blur');
 
 	});
 
-	$('.tweet-actions').on('hover', function() {
-
-	});
-
-
+	$('.tweet').over(function () {
+		if($(this).find('.tweet-actions').hasClass('noShow')){
+			$(this).find('.tweet-actions').removeClass('noShow')
+		}
+	{function () {
+		if(!$(this).find('.stats').slideToggle(900);
+			$(this).find('.reply').slideToggle(1000);)
+	}};
+	
 
 });
